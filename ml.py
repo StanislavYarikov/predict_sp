@@ -6,9 +6,10 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import GradientBoostingRegressor
 import pickle
 
+from insert_facts import get_train_test
+
 # Load the data
-train_X = pd.read_csv('train_X.csv')
-train_y = pd.read_csv('train_y.csv', header=None)
+train_X, train_y, pred_X, pred_y = get_train_test()
 
 # Define the model and parameter grid for cross-validation
 gbr = GradientBoostingRegressor()
@@ -32,5 +33,4 @@ with open('best_gbr_model.pkl', 'wb') as f:
     pickle.dump(best_gbr, f)
 
 # Use the best model to make predictions on a new dataset
-pred_X = pd.read_csv('pred_X.csv')
 pred_y = best_gbr.predict(pred_X)
