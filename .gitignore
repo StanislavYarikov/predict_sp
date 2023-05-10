@@ -3,3 +3,4 @@ task_sp.xlsx
 __pycache__/manage_db.cpython-311.pyc
 ~$task_facts.xlsx
 ~$task_sp.xlsx
+best_gbr_model.pkl
